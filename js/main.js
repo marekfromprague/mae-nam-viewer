@@ -333,14 +333,12 @@ function setMode(m, fromToggle = true) {
     markView(null);
   }
   mode = m; orbit.enabled = m === 'drone';
-  document.querySelectorAll('[data-cam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === m)));
   pad.hidden = !isTouch;
   pad.querySelectorAll('.k-rise,.k-sink').forEach(b => b.hidden = m !== 'drone');
   if (m === 'walk') hintText.innerHTML = isTouch ? 'Drag to look around · arrows to walk' : 'Drag to look · <b>W A S D</b> / arrows to walk · <b>Shift</b> to run';
   else hintText.innerHTML = isTouch ? 'Drag to orbit · pinch to zoom · two fingers to pan · arrows to fly' : 'Drag to orbit · right-drag to pan · scroll to zoom · <b>W A S D</b> to fly · <b>E</b>/<b>Q</b> up/down';
   if (m === 'drone') where.textContent = '';
 }
-document.querySelectorAll('[data-cam]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.cam)));
 document.querySelectorAll('[data-time]').forEach(b => b.addEventListener('click', () => setTime(b.dataset.time)));
 
 // ---------- input ----------
