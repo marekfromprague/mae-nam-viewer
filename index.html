@@ -1,54 +1,41 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Mae Nam Plot 1 â€” Concept A</title>
-<meta name="description" content="Interactive walk and drone view of the Mae Nam Plot 1 mini-resort concept, Koh Samui.">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#f3ece0">
+<meta name="robots" content="noindex">
+<title>Mae Nam project — Concept A</title>
+<meta name="description" content="Interactive 3D view of the Mae Nam project, Concept A: three loft bungalows and a main house with two apartments around the pool, Koh Samui.">
+<meta name="theme-color" content="#cfe3ee">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1 8 8 2l7 6v7H1z' fill='%239a4a2c'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="css/app.css">
 <script type="importmap">{"imports":{
   "three":"./vendor/three/build/three.module.min.js",
-  "three/addons/":"./vendor/three/examples/jsm/",
-  "three-mesh-bvh":"./vendor/three-mesh-bvh/index.module.js"}}</script>
+  "three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
 <body>
 <div id="stage"></div>
 
-<header class="ui" id="top">
+<div class="ui" id="top">
   <div class="card" id="title">
-    <h1>Mae Nam Plot 1</h1>
-    <p>Concept A Â· 3 bungalows + main house Â· Koh Samui</p>
+    <h1>Mae Nam project</h1>
+    <p>Concept A · 3 bungalows + main house · Koh Samui</p>
   </div>
-  <div class="tools">
-    <div class="seg card" role="group" aria-label="Time of day">
-      <button data-time="day" aria-pressed="true" title="15 March, 16:30">Day</button>
-      <button data-time="dusk" aria-pressed="false" title="Dusk with lights on">Dusk</button>
-    </div>
-    <button class="card icon" id="aboutBtn" aria-haspopup="dialog" aria-label="About and credits" title="About and credits">i</button>
+  <div class="card" id="views"><div class="row"><span class="lbl">View</span><span class="row" id="viewStrip"></span></div></div>
+  <div class="card tools">
+    <button class="chip" id="lineBtn" aria-pressed="false" title="Show the plot boundary">Plot boundary</button>
+    <button class="chip icon" id="aboutBtn" aria-haspopup="dialog" aria-label="About and credits" title="About and credits">i</button>
   </div>
-</header>
-
-<nav class="ui" id="views" aria-label="Viewpoints"><div class="strip" id="viewStrip"></div></nav>
-
-<div class="ui card" id="hint"><span id="hintText"></span><span id="where"></span></div>
-
-<div class="ui" id="pad" hidden>
-  <button class="k-up" data-k="f" aria-label="Forward">&#9650;</button>
-  <button class="k-l" data-k="l" aria-label="Left">&#9664;</button>
-  <button class="k-b" data-k="b" aria-label="Back">&#9660;</button>
-  <button class="k-r" data-k="r" aria-label="Right">&#9654;</button>
-  <button class="k-rise" data-k="u" aria-label="Fly up" hidden>&#8679;</button>
-  <button class="k-sink" data-k="dn" aria-label="Fly down" hidden>&#8681;</button>
 </div>
+
+<div class="ui card" id="hint"><span id="hintText"></span></div>
 
 <div id="loader" role="status" aria-live="polite">
   <div class="load-card">
-    <h2>Mae Nam Plot 1</h2>
-    <p id="loadText">Loading the site modelâ€¦</p>
+    <h2>Mae Nam project</h2>
+    <p id="loadText">Loading the model…</p>
     <div class="bar"><i id="loadBar"></i></div>
   </div>
 </div>
@@ -56,17 +43,18 @@
 <dialog id="about" aria-labelledby="aboutTitle">
   <form method="dialog">
     <h2 id="aboutTitle">About this model</h2>
-    <p>Concept A for Plot 1, Mae Nam, Koh Samui: three 4 Ã— 9 m loft bungalows and a two-storey main house with two one-bedroom apartments, around the existing pool. Concept visualisation, not a construction drawing. Neighbours, road and palms are approximate.</p>
+    <p>Concept A for the Mae Nam project, Koh Samui: three 4 × 9 m loft bungalows with black metal walls, and a two-storey main house with two 2-bedroom apartments, around the existing pool. Lighting is baked in Blender (Cycles) for 15 March, 16:30.</p>
+    <p>A concept visualisation, not a construction drawing. Furniture and planting are indicative. Neighbours, road and palms are approximate.</p>
     <h3>Controls</h3>
     <ul class="keys">
-      <li><b>Walk</b> drag to look Â· <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows to move Â· <kbd>Shift</kbd> to run Â· on phones use the arrow pad</li>
-      <li><b>Drone</b> drag to orbit Â· right-drag or two fingers to pan Â· scroll or pinch to zoom Â· <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to fly Â· <kbd>E</kbd>/<kbd>Q</kbd> up/down</li>
+      <li>Drag to orbit or look around · scroll or pinch to zoom · right-drag or two fingers to pan</li>
+      <li>The buttons along the top jump to the preset views.</li>
     </ul>
-    <label class="opt"><input type="checkbox" id="optLine"> Show the plot boundary line</label>
+    <label class="opt"><input type="checkbox" id="optLine"> Show the plot boundary</label>
     <h3>Credits</h3>
     <p class="credits" id="creditLine"></p>
     <ul class="links" id="creditLinks"></ul>
-    <p class="small">Viewer: three.js (MIT), three-mesh-bvh (MIT).</p>
+    <p class="small">Viewer: three.js (MIT).</p>
     <button class="close" value="close">Close</button>
   </form>
 </dialog>
