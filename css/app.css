@@ -60,6 +60,8 @@ dialog#about::backdrop{background:rgba(20,28,28,.35);backdrop-filter:blur(2px)}
   #title p{display:none}
   #title{padding:6px 10px}
   #title h1{font-size:17px}
+  #modes{padding:6px 8px}
+  #modes .lbl{display:none}
   #views{order:3;width:100%;padding:6px 8px}
   #views > .row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
   #views > .row::-webkit-scrollbar{display:none}
