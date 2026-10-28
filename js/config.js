@@ -44,7 +44,7 @@ export const MODELS = {
       { id: 'arrival',   label: 'Arrival',                  eye: [10.8, 1.65, 15.6],  target: [16.6, 1.55, 14.8], min: 0.5, max: 40 },
       { id: 'pool',      label: 'Pool deck',                eye: [30.4, 1.6, 9.6],    target: [33.6, 1.4, 8.0],   min: 0.5, max: 30 },
       { id: 'garden',    label: 'Bungalow garden & porch',  eye: [12.1, 1.6, 12.2],   target: [14.4, 1.7, 8.9],   min: 0.5, max: 30 },
-      { id: 'b_living',  label: 'Bungalow living room',     eye: [18.6, 1.85, 9.6],   target: [18.3, 1.8, 8.8],   min: 0.2, max: 1.6, room: true },
+      { id: 'b_living',  label: 'Bungalow living room',     eye: [16.44, 1.85, 5.3],  target: [16.92, 1.6, 6.06],   min: 0.2, max: 1.6, room: true },
       { id: 'b_loft',    label: 'Bungalow loft',            eye: [17.9, 3.95, 4.55],  target: [17.85, 3.85, 3.75], min: 0.2, max: 1.2, room: true },
       { id: 'mh_pool',   label: 'Main house from the pool', eye: [30.0, 2.5, 0.9],    target: [37.0, 3.0, 5.1],   min: 0.5, max: 40 },
       { id: 'mh_living', label: 'Main house living room',   eye: [42.2, 2.6, 8.5],    target: [41.9, 2.5, 7.7],   min: 0.2, max: 2.0, room: true },
